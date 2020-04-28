@@ -1,11 +1,5 @@
 terraform {
-  backend "s3" {
-    bucket              = "terraform-state"
-    key                 = "stage/ecs-cluster/terraform.tfstate"
-    region              = "us-west-2"
-    encrypt             = true
-    dynamodb_table      = "my-lock-table"
-  }
+  backend "s3" {}
 }
 
 provider "aws" {
@@ -17,5 +11,4 @@ provider "aws" {
       role_arn = assume_role.value
     }
   }
-
 }
