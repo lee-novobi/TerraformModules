@@ -31,22 +31,22 @@ resource "aws_lb_listener" "http_frontend" {
   }
 }
 
-
-resource "aws_lb_listener" "https_frontend" {
-  count             = var.enable_alb ? 1 : 0
-  load_balancer_arn = aws_lb.lb[count.index].arn
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-  #certificate_arn   = aws_acm_certificate.cert[count.index].arn
-
-  default_action {
-    type = "fixed-response"
-
-    fixed_response {
-      content_type = "text/plain"
-      message_body = "Hello"
-      status_code  = "200"
-    }
-  }
-}
+//
+//resource "aws_lb_listener" "https_frontend" {
+//  count             = var.enable_alb ? 1 : 0
+//  load_balancer_arn = aws_lb.lb[count.index].arn
+//  port              = "443"
+//  protocol          = "HTTPS"
+//  ssl_policy        = "ELBSecurityPolicy-2016-08"
+//  #certificate_arn   = aws_acm_certificate.cert[count.index].arn
+//
+//  default_action {
+//    type = "fixed-response"
+//
+//    fixed_response {
+//      content_type = "text/plain"
+//      message_body = "Hello"
+//      status_code  = "200"
+//    }
+//  }
+//}
