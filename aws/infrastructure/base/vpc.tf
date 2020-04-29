@@ -5,7 +5,7 @@ module "vpc" {
   cidr             = var.cidr_block
   azs              = var.azs
   private_subnets  = var.private_subnets
-  database_subnets = var.database_subnets
+  #database_subnets = var.database_subnets
   public_subnets   = var.public_subnets
 
   create_database_subnet_group = false
