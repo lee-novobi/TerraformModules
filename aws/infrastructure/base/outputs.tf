@@ -49,10 +49,10 @@ output "aws_lb_listener_http_arn" {
   description = "ALB Http Listener ARN"
 }
 
-output "aws_lb_listener_https_arn" {
-  value       = var.enable_alb ? aws_lb_listener.https_frontend[0].arn : ""
-  description = "ALB Https Listener ARN"
-}
+//output "aws_lb_listener_https_arn" {
+//  value       = var.enable_alb ? aws_lb_listener.https_frontend[0].arn : ""
+//  description = "ALB Https Listener ARN"
+//}
 
 //output "codepipeline_s3_bucket" {
 //  value       = var.enable_codepipeline_s3 ? aws_s3_bucket.this[0].bucket : ""
