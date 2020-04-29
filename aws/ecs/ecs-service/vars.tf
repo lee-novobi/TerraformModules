@@ -84,27 +84,6 @@ variable "ecs_ecr_state_config" {
   }
 }
 
-
-variable "mysql_database_state_config" {
-  description = "The State file of mysql"
-  type        = map
-  default = {
-    "bucket" = "bucket"
-    "key"    = "image-4567"
-    "region" = ""
-  }
-}
-
-variable "postgres_database_state_config" {
-  description = "The State file of postgres"
-  type        = map
-  default = {
-    "bucket" = "bucket"
-    "key"    = "image-4567"
-    "region" = ""
-  }
-}
-
 variable "image_tag" {
   description = "Image Tag"
   type        = string
@@ -245,7 +224,7 @@ variable "health_check" {
   default = {
   "healthy_threshold"   = "5"
   "interval"            = "60"
-  "path"                = "/web/login"
+  "path"                = "/"
   "timeout"             = "45"
   "unhealthy_threshold" = "5"
   "matcher"             = "200,303"
