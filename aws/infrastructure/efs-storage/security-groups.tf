@@ -1,12 +1,12 @@
 locals {
-  sg_public  = var.allow_public_subnets ? ["${data.terraform_remote_state.base_layout.outputs.sg_public}"] : []
-  sg_private = var.allow_private_subnets ? ["${data.terraform_remote_state.base_layout.outputs.sg_private}"] : []
+  sg_public  = var.allow_public_subnets ? ["${data.terraform_remote_state.base_infrastructure.outputs.sg_public}"] : []
+  sg_private = var.allow_private_subnets ? ["${data.terraform_remote_state.base_infrastructure.outputs.sg_private}"] : []
 }
 
 resource "aws_security_group" "sg_efs" {
   name        = "${lower(var.name)}-efs-sg"
   description = "[${lower(var.name)}] Security group for EFS"
-  vpc_id      = "${data.terraform_remote_state.base_layout.outputs.vpc_id}"
+  vpc_id      = "${data.terraform_remote_state.base_infrastructure.outputs.vpc_id}"
 
   ingress {
     from_port       = 2049
