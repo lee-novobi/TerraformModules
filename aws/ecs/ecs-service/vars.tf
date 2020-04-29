@@ -54,7 +54,7 @@ variable "awsvpc_network_configuration" {
   }
 }
 
-variable "base_layout_state_config" {
+variable "base_infrastructure_state_config" {
   description = "The base layout state config"
   type        = map
   default = {

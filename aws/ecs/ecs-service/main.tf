@@ -15,9 +15,9 @@ provider "aws" {
 data "terraform_remote_state" "base_layout" {
   backend = "s3"
   config = {
-    bucket = "${var.base_layout_state_config.bucket}"
-    key    = "${var.base_layout_state_config.key}"
-    region = "${var.base_layout_state_config.region}"
+    bucket = "${var.base_infrastructure_state_config.bucket}"
+    key    = "${var.base_infrastructure_state_config.key}"
+    region = "${var.base_infrastructure_state_config.region}"
   }
 }
 
