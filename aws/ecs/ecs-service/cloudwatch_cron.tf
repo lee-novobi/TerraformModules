@@ -36,7 +36,7 @@ resource "aws_iam_role_policy" "ecs_events_run_task_with_any_role" {
         {
             "Effect": "Allow",
             "Action": "ecs:RunTask",
-            "Resource": "${replace(var.enable_fargate ? aws_ecs_task_definition.task_definition_fargate[0].arn : aws_ecs_task_definition.task_definition[0].arn, "/:\\d+$/", ":*")}"
+            "Resource": "${replace(aws_ecs_task_definition.task_definition[0].arn, "/:\\d+$/", ":*")}"
         }
     ]
 }
@@ -56,7 +56,7 @@ resource "aws_cloudwatch_event_target" "ecs_scheduled_task" {
   ecs_target {
     launch_type         = local.launch_type
     task_count          = 1
-    task_definition_arn = replace(var.enable_fargate ? aws_ecs_task_definition.task_definition_fargate[0].arn : aws_ecs_task_definition.task_definition[0].arn, "/:\\d+$/", "")
+    task_definition_arn = replace(aws_ecs_task_definition.task_definition[0].arn, "/:\\d+$/", "")
 
     dynamic "network_configuration" {
       for_each = local.network_mode == "awsvpc" ? ["yes"] : []
