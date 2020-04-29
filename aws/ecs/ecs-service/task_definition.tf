@@ -1,5 +1,5 @@
 locals {
-  container_definitions = var.task_definitions
+  container_definitions = jsonencode(var.task_definitions)
 
   requires_compatibilities = var.enable_fargate ? ["EC2", "FARGATE"] : ["EC2"]
 
