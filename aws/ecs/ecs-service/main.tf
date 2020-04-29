@@ -18,7 +18,6 @@ data "terraform_remote_state" "base_layout" {
     bucket = "${var.base_layout_state_config.bucket}"
     key    = "${var.base_layout_state_config.key}"
     region = "${var.base_layout_state_config.region}"
-
   }
 }
 
