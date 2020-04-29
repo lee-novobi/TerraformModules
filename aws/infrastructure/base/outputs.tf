@@ -54,17 +54,17 @@ output "aws_lb_listener_https_arn" {
   description = "ALB Https Listener ARN"
 }
 
-output "codepipeline_s3_bucket" {
-  value       = var.enable_codepipeline_s3 ? aws_s3_bucket.this[0].bucket : ""
-  description = "S3 Buckets for CodePipeline"
-}
+//output "codepipeline_s3_bucket" {
+//  value       = var.enable_codepipeline_s3 ? aws_s3_bucket.this[0].bucket : ""
+//  description = "S3 Buckets for CodePipeline"
+//}
 
-output "codepipeline_s3_bucket_arn" {
-  value       = var.enable_codepipeline_s3 ? aws_s3_bucket.this[0].arn : ""
-  description = "S3 Buckets for CodePipeline"
-}
+//output "codepipeline_s3_bucket_arn" {
+//  value       = var.enable_codepipeline_s3 ? aws_s3_bucket.this[0].arn : ""
+//  description = "S3 Buckets for CodePipeline"
+//}
 
-output "lambda_function_codepipeline_github" {
-  value       = aws_lambda_function.run_lambda_codepipeline.function_name
-  description = "ARN of Lambda Function run_lambda_codepipeline"
-}
+//output "lambda_function_codepipeline_github" {
+//  value       = aws_lambda_function.run_lambda_codepipeline.function_name
+//  description = "ARN of Lambda Function run_lambda_codepipeline"
+//}
