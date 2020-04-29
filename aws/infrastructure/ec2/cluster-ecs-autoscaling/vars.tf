@@ -17,7 +17,7 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
-variable "base_layout_state_config" {
+variable "base_infrastructure_state_config" {
   description = "The cidr_block of the cluster"
   type        = map
   default = {
