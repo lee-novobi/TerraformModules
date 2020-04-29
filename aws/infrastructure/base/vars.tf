@@ -42,6 +42,11 @@ variable "public_subnets" {
   type        = list(string)
 }
 
+variable "database_subnets" {
+  description = "The cidr_block of the cluster"
+  type        = list(string)
+}
+
 variable "enable_nat_gateway" {
   type    = bool
   default = true
