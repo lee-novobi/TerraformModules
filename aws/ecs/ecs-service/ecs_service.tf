@@ -7,7 +7,7 @@ resource "aws_ecs_service" "service_single" {
   count           = var.has_autoscaling_group ? 0 : 1
   name            = "${var.name}-${var.service_name}"
   cluster         = data.terraform_remote_state.ecs_cluster.outputs.cluster_name
-  task_definition = var.enable_fargate ? aws_ecs_task_definition.task_definition_fargate[0].arn : aws_ecs_task_definition.task_definition[0].arn
+  task_definition = aws_ecs_task_definition.task_definition[0].arn
   desired_count   = var.task_count
 
   launch_type = local.launch_type
@@ -47,7 +47,7 @@ resource "aws_ecs_service" "service_autoscale" {
   count           = var.has_autoscaling_group ? 1 : 0
   name            = "${var.name}-${var.service_name}"
   cluster         = data.terraform_remote_state.ecs_cluster.outputs.cluster_name
-  task_definition = var.enable_fargate ? aws_ecs_task_definition.task_definition_fargate[0].arn : aws_ecs_task_definition.task_definition[0].arn
+  task_definition = aws_ecs_task_definition.task_definition[0].arn
   desired_count   = var.task_count
 
   launch_type = local.launch_type
