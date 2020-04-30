@@ -32,3 +32,29 @@ resource "aws_iam_role_policy_attachment" "ecs-access-ecr-attach" {
   role       = aws_iam_role.ecs_execution_role.name
   policy_arn = aws_iam_policy.extra[0].arn
 }
+
+
+resource "aws_iam_role_policy" "ecr_policy" {
+  name = "ecr_policy"
+  role = aws_iam_role.ecs_execution_role.id
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage",
+                "ecr:DescribeImages",
+                "ecr:ListImages",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetAuthorizationToken"
+            ],
+            "Resource": "*"
+        }
+  ]
+}
+EOF
+}
