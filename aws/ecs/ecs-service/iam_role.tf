@@ -32,4 +32,3 @@ resource "aws_iam_role_policy_attachment" "ecs-access-ecr-attach" {
   role       = aws_iam_role.ecs_execution_role.name
   policy_arn = aws_iam_policy.extra[0].arn
 }
-
